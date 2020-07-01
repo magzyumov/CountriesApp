@@ -1,4 +1,4 @@
-package ru.magzyumov.countries.svg;
+package ru.magzyumov.countries.glide;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -8,20 +8,14 @@ import android.util.Log;
 
 import android.widget.ImageView;
 
-
 import com.bumptech.glide.Glide;
-
 import com.bumptech.glide.RequestBuilder;
-
-
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.util.Preconditions;
-
 
 import java.io.File;
 
 import ru.magzyumov.countries.R;
+
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
@@ -38,7 +32,6 @@ public class GlideLoader {
         requestBuilder =
                 GlideApp.with(context)
                         .as(PictureDrawable.class)
-                        //.placeholder(R.drawable.image_loading)
                         .error(R.drawable.image_error)
                         .transition(withCrossFade())
                         .listener(new SvgSoftwareLayerSetter());

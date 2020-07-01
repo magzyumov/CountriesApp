@@ -1,37 +1,26 @@
 package ru.magzyumov.countries.model.database;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
 
 import java.util.List;
+
+import io.reactivex.Completable;
+import io.reactivex.Single;
 
 @Dao
 public interface ICountriesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertCountry(Countries country);
+    Completable insertCountry(Countries country);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertCountries(List<Countries> countries);
-
-    @Update
-    void updateCountry(Countries country);
-
-    @Delete
-    void deleteCountry(Countries country);
+    Completable insertCountries(List<Countries> countries);
 
     @Query("SELECT * FROM Countries")
-    List<Countries> getAllCountries();
-
-    @Query("DELETE FROM Countries WHERE id = :id")
-    void deteleCountryById(int id);
+    Single<List<Countries>> getAllCountries();
 
     @Query("SELECT * FROM Countries WHERE id = :id")
-    Countries getCountryById(int id);
-
-    @Query("SELECT COUNT() FROM Countries")
-    int getCountCountries();
+    Single<Countries> getCountryById(int id);
 }

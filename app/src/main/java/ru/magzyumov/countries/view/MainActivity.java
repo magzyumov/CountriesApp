@@ -11,12 +11,11 @@ import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import ru.magzyumov.countries.BroadcastReceivers.IBroadcastListener;
-import ru.magzyumov.countries.BroadcastReceivers.NetworkReceiver;
+import ru.magzyumov.countries.presenter.IBroadcastListener;
+import ru.magzyumov.countries.presenter.NetworkReceiver;
 import ru.magzyumov.countries.Constants;
 import ru.magzyumov.countries.R;
 import ru.magzyumov.countries.model.database.Countries;
@@ -52,12 +51,12 @@ public class MainActivity extends AppCompatActivity implements IMainView, IBroad
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        networkReceiver.removeListener(this);
         unregisterReceivers();
     }
 
     private void initView(){
         mainPresenter.init();
-        initRecyclerView();
     }
 
     private void initRecyclerView() {
@@ -86,6 +85,11 @@ public class MainActivity extends AppCompatActivity implements IMainView, IBroad
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void dataReady(){
+        initRecyclerView();
     }
 
     @Override

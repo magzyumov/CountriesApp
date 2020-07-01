@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import ru.magzyumov.countries.svg.GlideLoader;
+import ru.magzyumov.countries.glide.GlideLoader;
 import ru.magzyumov.countries.R;
 import ru.magzyumov.countries.model.response.ICountriesParsed;
 import ru.magzyumov.countries.model.database.Countries;
@@ -44,9 +44,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull MainAdapter.ViewHolder viewHolder, int position) {
         Countries country = dataSource.getCountry(position);
 
-        glideLoader.clearCache(viewHolder.getImageViewCountryFlag());
+        //glideLoader.clearCache(viewHolder.getImageViewCountryFlag());
         glideLoader.loadNet(country.flagUrl, viewHolder.getImageViewCountryFlag());
-
 
         viewHolder.getTextViewCountryName().setText(country.name);
     }

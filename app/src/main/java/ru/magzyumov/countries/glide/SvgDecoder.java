@@ -1,4 +1,4 @@
-package ru.magzyumov.countries.svg;
+package ru.magzyumov.countries.glide;
 
 import static com.bumptech.glide.request.target.Target.SIZE_ORIGINAL;
 

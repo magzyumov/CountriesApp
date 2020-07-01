@@ -1,4 +1,4 @@
-package ru.magzyumov.countries.BroadcastReceivers;
+package ru.magzyumov.countries.presenter;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

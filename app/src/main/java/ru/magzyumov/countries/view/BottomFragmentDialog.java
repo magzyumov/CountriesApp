@@ -16,7 +16,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import ru.magzyumov.countries.Constants;
 import ru.magzyumov.countries.R;
 import ru.magzyumov.countries.model.database.Countries;
-import ru.magzyumov.countries.svg.GlideLoader;
+import ru.magzyumov.countries.glide.GlideLoader;
 
 
 public class BottomFragmentDialog extends BottomSheetDialogFragment implements Constants {

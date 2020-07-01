@@ -1,4 +1,4 @@
-package ru.magzyumov.countries.svg;
+package ru.magzyumov.countries.glide;
 
 import android.content.Context;
 import android.graphics.drawable.PictureDrawable;
@@ -10,6 +10,9 @@ import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;
 import com.caverock.androidsvg.SVG;
 import java.io.InputStream;
+
+import ru.magzyumov.countries.glide.SvgDecoder;
+import ru.magzyumov.countries.glide.SvgDrawableTranscoder;
 
 
 /** Module for the SVG sample app. */

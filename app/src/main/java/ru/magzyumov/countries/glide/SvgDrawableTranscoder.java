@@ -1,4 +1,4 @@
-package ru.magzyumov.countries.svg;
+package ru.magzyumov.countries.glide;
 
 import android.graphics.Picture;
 import android.graphics.drawable.PictureDrawable;

@@ -14,10 +14,6 @@ public class App extends Application {
     private static App instance;
     private CountriesDatabase database;
 
-    public static App getInstance() {
-        return instance;
-    }
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -30,10 +26,15 @@ public class App extends Application {
                 getApplicationContext(),
                 CountriesDatabase.class,
                 "countries")
-                .allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
                 .build();
     }
 
     public ICountriesDao getCountriesDao() { return database.getCountriesDao(); }
+
+    public static App getInstance() {
+        return instance;
+    }
+
+    public CountriesDatabase getDatabase() { return database; }
 }
