@@ -52,7 +52,7 @@ public class BottomFragmentDialog extends BottomSheetDialogFragment implements C
         View view = inflater.inflate(R.layout.fragment_dialog, container, false);
 
         imageViewCountryFlag = view.findViewById(R.id.imageViewCountryFlag);
-        glideLoader.loadNet(country.flagUrl, imageViewCountryFlag);
+        glideLoader.load(country.flagUrl, imageViewCountryFlag, false);
 
         textViewCountryName = view.findViewById(R.id.textViewCountryName);
         textViewCountryName.setText(country.name);

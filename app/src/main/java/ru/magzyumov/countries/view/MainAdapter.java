@@ -44,8 +44,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull MainAdapter.ViewHolder viewHolder, int position) {
         Countries country = dataSource.getCountry(position);
 
-        //glideLoader.clearCache(viewHolder.getImageViewCountryFlag());
-        glideLoader.loadNet(country.flagUrl, viewHolder.getImageViewCountryFlag());
+        glideLoader.load(country.flagUrl, viewHolder.getImageViewCountryFlag(), false);
 
         viewHolder.getTextViewCountryName().setText(country.name);
     }

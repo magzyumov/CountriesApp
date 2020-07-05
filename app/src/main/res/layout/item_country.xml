@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainCardView"
     style="@style/MainCardViewStyle">
 
@@ -24,7 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/image_loading"
+            tools:srcCompat="@drawable/image_error"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

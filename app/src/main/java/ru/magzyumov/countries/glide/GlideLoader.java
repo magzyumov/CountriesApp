@@ -37,7 +37,17 @@ public class GlideLoader {
                         .listener(new SvgSoftwareLayerSetter());
     }
 
-    public void clearCache(ImageView imageView) {
+    public void load(String url, ImageView imageView, boolean toClear){
+        if(toClear){
+            clearCache(imageView);
+            loadNet(url, imageView);
+        } else {
+            loadNet(url, imageView);
+        }
+
+    }
+
+    private void clearCache(ImageView imageView) {
         Log.e(TAG, "clearing cache");
         GlideRequests glideRequests = GlideApp.with(context);
         glideRequests.clear(imageView);
@@ -50,7 +60,6 @@ public class GlideLoader {
                 }
             }
         }
-        reload(imageView);
     }
 
     private void reload(ImageView imageView) {
@@ -69,7 +78,7 @@ public class GlideLoader {
         requestBuilder.load(uri).into(imageView);
     }
 
-    public void loadNet(String url, ImageView imageView) {
+    private void loadNet(String url, ImageView imageView) {
         Uri uri = Uri.parse(url);
         requestBuilder
                 .load(uri)
